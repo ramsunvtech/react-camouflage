@@ -5,6 +5,24 @@
 
 ### FetchView
 
+Get rid of the below lengthy conditions.
+
+```
+if (!status) {
+  return <PartialLoader />
+} else if (status === 'loading') {
+  return <Spinner />
+} else if (status === 'success') {
+  return <MailList />
+} else {
+   return (
+     Error Occurred: Please click to try again.
+   );
+}
+```
+
+FetchView with `status` Props.
+
 ```
 const status = 'success';
 /**
@@ -16,16 +34,41 @@ const status = 'success';
 
 <FetchView status={status}>
   <FetchView.Initial>
-    Default view
+    <PartialLoader />
   </FetchView.Initial>
   <FetchView.Fetching>
-    <div>Loading Standards...</div>
+    <Spinner />
   </FetchView.Fetching>
   <FetchView.Fetched>
-    Done. Success!
+    <MailList />
   </FetchView.Fetched>
   <FetchView.Error>
-    <div>sorry error message</div>
+    <span>Error Occurred: Please click to try again.</span>
+  </FetchView.Error>
+</FetchView>
+```
+
+FetchView with `status` Props.
+
+```
+const statusMapping = {
+  [Statuses.Success]: (status === 'success'),
+  [Statuses.Error]: (status === 'error'),
+  [Statuses.Loading]: (status === 'loading'),
+}
+
+<FetchView statusMapping={statusMapping}>
+  <FetchView.Initial>
+    <PartialLoader />
+  </FetchView.Initial>
+  <FetchView.Fetching>
+    <Spinner />
+  </FetchView.Fetching>
+  <FetchView.Fetched>
+    <MailList />
+  </FetchView.Fetched>
+  <FetchView.Error>
+    <span>Error Occurred: Please click to try again.</span>
   </FetchView.Error>
 </FetchView>
 ```
