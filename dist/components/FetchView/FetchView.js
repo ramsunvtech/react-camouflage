@@ -41,7 +41,9 @@ function DefaultView(_ref) {
   var children = _ref.children;
 
   var _useFetchContext = useFetchContext(),
-      status = _useFetchContext.status;
+      status = _useFetchContext.status,
+      _useFetchContext$stat = _useFetchContext.statusMapping,
+      statusMapping = _useFetchContext$stat === void 0 ? {} : _useFetchContext$stat;
 
   var isStatusFailed = !status;
   var isAllFailed = statusMapping && ![statusMapping[_statuses.Statuses.Loading], statusMapping[_statuses.Statuses.Success], statusMapping[_statuses.Statuses.Error]].includes(true);
