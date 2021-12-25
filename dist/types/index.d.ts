@@ -10,13 +10,6 @@ declare module 'react-camouflage' {
     children: ReactNode;
   }
 
-  interface IFetchViewComposition {
-    Initial: React.FC<IFetchViewChildrenProps>;
-    Fetching: React.FC<IFetchViewChildrenProps>;
-    Fetched: React.FC<IFetchViewChildrenProps>;
-    Error: React.FC<IFetchViewChildrenProps>;
-  }
-
   export class FetchView extends React.Component<IFetchViewProps> {
     constructor(props: IFetchViewProps)
 
