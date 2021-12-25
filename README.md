@@ -1,5 +1,5 @@
 # react-camouflage
-camouflage components help to change view as per various status
+`react-camouflage` components help to change view as per various status
 
 ## Usage
 
@@ -14,7 +14,7 @@ const status = 'success';
  * `FetchView.Error` will render when status is 'error`.
  */
 
-<FetchView status="success">
+<FetchView status={status}>
   <FetchView.Initial>
     Default view
   </FetchView.Initial>
@@ -29,3 +29,22 @@ const status = 'success';
   </FetchView.Error>
 </FetchView>
 ```
+
+##### Using NPM:
+
+```sh
+$ npm install react-camouflage --save
+```
+
+##### Using yarn
+
+```sh
+$ yarn add react-camouflage
+```
+
+# Demo
+
+[Code Sandbox Working Demo](https://codesandbox.io/s/react-camouflage-test-in-ts-f139j)
+
+# License
+MIT
