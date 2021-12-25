@@ -43,34 +43,67 @@ function DefaultView(_ref) {
   var _useFetchContext = useFetchContext(),
       status = _useFetchContext.status;
 
-  return !status ? children : null;
+  var isStatusFailed = !status;
+  var isAllFailed = ![statusMapping[_statuses.Statuses.Loading], statusMapping[_statuses.Statuses.Success], statusMapping[_statuses.Statuses.Error]].includes(true);
+
+  if (isStatusFailed || isAllFailed) {
+    return children;
+  }
+
+  return null;
 }
 
 function FetchingView(_ref2) {
-  var children = _ref2.children;
+  var _ref2$loadingText = _ref2.loadingText,
+      loadingText = _ref2$loadingText === void 0 ? 'Loading...' : _ref2$loadingText,
+      children = _ref2.children;
 
   var _useFetchContext2 = useFetchContext(),
-      status = _useFetchContext2.status;
+      status = _useFetchContext2.status,
+      statusMapping = _useFetchContext2.statusMapping;
 
-  return status === _statuses.Statuses.Loading ? children || /*#__PURE__*/_react["default"].createElement("div", null, "Loading...") : null;
+  var isLoadingPassed = status === _statuses.Statuses.Loading;
+  var isLoadingPassedInMapping = !status && statusMapping[_statuses.Statuses.Loading] === true;
+
+  if (isLoadingPassed || isLoadingPassedInMapping) {
+    return children || /*#__PURE__*/_react["default"].createElement("div", null, loadingText);
+  }
+
+  return null;
 }
 
 function FetchedView(_ref3) {
   var children = _ref3.children;
 
   var _useFetchContext3 = useFetchContext(),
-      status = _useFetchContext3.status;
+      status = _useFetchContext3.status,
+      statusMapping = _useFetchContext3.statusMapping;
 
-  return status === _statuses.Statuses.Success ? children : null;
+  var isSuccessPassed = status === _statuses.Statuses.Success;
+  var isSuccessPassedInMapping = !status && statusMapping[_statuses.Statuses.Success] === true;
+
+  if (isSuccessPassed || isSuccessPassedInMapping) {
+    return children;
+  }
+
+  return null;
 }
 
 function ErrorView(_ref4) {
   var children = _ref4.children;
 
   var _useFetchContext4 = useFetchContext(),
-      status = _useFetchContext4.status;
+      status = _useFetchContext4.status,
+      statusMapping = _useFetchContext4.statusMapping;
 
-  return status === _statuses.Statuses.Error ? children : null;
+  var isErrorPassed = status === _statuses.Statuses.Error;
+  var isErrorPassedInMapping = !status && statusMapping[_statuses.Statuses.Error] === true;
+
+  if (isErrorPassed || isErrorPassedInMapping) {
+    return children;
+  }
+
+  return null;
 }
 
 function FetchView(props) {
