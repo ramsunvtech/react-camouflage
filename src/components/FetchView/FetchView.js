@@ -35,10 +35,10 @@ function ErrorView({ children }) {
 }
 
 function FetchView(props) {
-  const { children, ...fetchStates } = props
+  const { children, status } = props
 
   return (
-    <FetchContext.Provider value={fetchStates}>
+    <FetchContext.Provider value={status}>
       {children}
     </FetchContext.Provider>
   )
@@ -50,6 +50,7 @@ FetchView.Fetched = FetchedView
 FetchView.Error = ErrorView
 
 FetchView.propTypes = {
+  status: PropTypes.string,
   children: PropTypes.node.isRequired,
 }
 

@@ -6,6 +6,7 @@ declare namespace FetchView {
     export { FetchedView as Fetched };
     export { ErrorView as Error };
     export namespace propTypes {
+        const status: any;
         const children: any;
     }
 }
