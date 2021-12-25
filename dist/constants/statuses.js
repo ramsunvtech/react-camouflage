@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.Statuses = void 0;
 var Statuses = {
   Success: 'success',
-  Error: 'Error',
+  Error: 'error',
   Loading: 'loading'
 };
 exports.Statuses = Statuses;
