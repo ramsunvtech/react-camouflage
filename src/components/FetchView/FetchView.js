@@ -15,7 +15,7 @@ function useFetchContext() {
 }
 
 function DefaultView({ children }) {
-  const { status } = useFetchContext()
+  const { status, statusMapping = {} } = useFetchContext()
   const isStatusFailed = (!status)
   const isAllFailed = statusMapping && (![
     statusMapping[Statuses.Loading],
