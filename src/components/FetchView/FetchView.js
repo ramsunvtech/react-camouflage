@@ -16,22 +16,54 @@ function useFetchContext() {
 
 function DefaultView({ children }) {
   const { status } = useFetchContext()
-  return !status ? children : null
+  const isStatusFailed = (!status)
+  const isAllFailed = (![
+    statusMapping[Statuses.Loading],
+    statusMapping[Statuses.Success],
+    statusMapping[Statuses.Error],
+  ].includes(true))
+
+  if (isStatusFailed || isAllFailed) {
+    return children
+  }
+
+  return null
 }
 
-function FetchingView({ children }) {
-  const { status } = useFetchContext()
-  return status === Statuses.Loading ? children || <div>Loading...</div> : null
+function FetchingView({ loadingText = 'Loading...', children }) {
+  const { status, statusMapping } = useFetchContext()
+  const isLoadingPassed = (status === Statuses.Loading)
+  const isLoadingPassedInMapping = (!status && statusMapping[Statuses.Loading] === true)
+
+  if (isLoadingPassed || isLoadingPassedInMapping) {
+    return children || <div>{loadingText}</div>
+  }
+
+  return null
 }
 
 function FetchedView({ children }) {
-  const { status } = useFetchContext()
-  return status === Statuses.Success ? children : null
+  const { status, statusMapping } = useFetchContext()
+  const isSuccessPassed = (status === Statuses.Success)
+  const isSuccessPassedInMapping = (!status && statusMapping[Statuses.Success] === true)
+
+  if (isSuccessPassed || isSuccessPassedInMapping) {
+    return children
+  }
+
+  return null
 }
 
 function ErrorView({ children }) {
-  const { status } = useFetchContext()
-  return status === Statuses.Error ? children : null
+  const { status, statusMapping } = useFetchContext()
+  const isErrorPassed = (status === Statuses.Error)
+  const isErrorPassedInMapping = (!status && statusMapping[Statuses.Error] === true)
+
+  if (isErrorPassed || isErrorPassedInMapping) {
+    return children
+  }
+
+  return null
 }
 
 function FetchView(props) {
