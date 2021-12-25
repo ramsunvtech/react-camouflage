@@ -17,8 +17,13 @@ declare module 'react-camouflage' {
     Error: React.FC<IFetchViewChildrenProps>;
   }
 
-  export class FetchView extends React.Component<IFetchViewProps, IFetchViewComposition> {
+  export class FetchView extends React.Component<IFetchViewProps> {
     constructor(props: IFetchViewProps)
+
+    Initial: ReactNode;
+    Fetching: ReactNode;
+    Fetched: ReactNode;
+    Error: ReactNode;
   }
 
 }
