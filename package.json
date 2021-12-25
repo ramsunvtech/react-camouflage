@@ -1,0 +1,42 @@
+{
+  "name": "react-camouflage",
+  "version": "1.0.0",
+  "description": "camouflage components help to change view as per various status",
+  "unpkg": "dist/index.js",
+  "jsdelivr": "dist/index.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist --copy-files",
+    "clean": "rm -rf node_modules",
+    "clean:i": "npm i --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramsunvtech/react-camouflage.git"
+  },
+  "author": {
+    "name": "Venkat.R",
+    "url": "https://www.linkedin.com/in/venkat-engineering-manager/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ramsunvtech/react-camouflage/issues"
+  },
+  "homepage": "https://github.com/ramsunvtech/react-camouflage#readme",
+  "dependencies": {
+    "prop-types": "^15.8.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-react": "^7.16.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rollup": "^2.62.0"
+  }
+}
