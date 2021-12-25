@@ -1,5 +1,13 @@
+import React from 'react'
+
 export default FetchView;
-declare function FetchView(props: any): any;
+
+interface FetchViewProps<T = {}> {
+    status: string;
+    children: React.Element;
+}
+
+declare function FetchView(props: FetchViewProps): any;
 declare namespace FetchView {
     export { DefaultView as Initial };
     export { FetchingView as Fetching };
