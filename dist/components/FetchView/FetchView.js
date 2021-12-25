@@ -44,7 +44,7 @@ function DefaultView(_ref) {
       status = _useFetchContext.status;
 
   var isStatusFailed = !status;
-  var isAllFailed = ![statusMapping[_statuses.Statuses.Loading], statusMapping[_statuses.Statuses.Success], statusMapping[_statuses.Statuses.Error]].includes(true);
+  var isAllFailed = statusMapping && ![statusMapping[_statuses.Statuses.Loading], statusMapping[_statuses.Statuses.Success], statusMapping[_statuses.Statuses.Error]].includes(true);
 
   if (isStatusFailed || isAllFailed) {
     return children;
@@ -60,7 +60,8 @@ function FetchingView(_ref2) {
 
   var _useFetchContext2 = useFetchContext(),
       status = _useFetchContext2.status,
-      statusMapping = _useFetchContext2.statusMapping;
+      _useFetchContext2$sta = _useFetchContext2.statusMapping,
+      statusMapping = _useFetchContext2$sta === void 0 ? {} : _useFetchContext2$sta;
 
   var isLoadingPassed = status === _statuses.Statuses.Loading;
   var isLoadingPassedInMapping = !status && statusMapping[_statuses.Statuses.Loading] === true;
@@ -77,7 +78,8 @@ function FetchedView(_ref3) {
 
   var _useFetchContext3 = useFetchContext(),
       status = _useFetchContext3.status,
-      statusMapping = _useFetchContext3.statusMapping;
+      _useFetchContext3$sta = _useFetchContext3.statusMapping,
+      statusMapping = _useFetchContext3$sta === void 0 ? {} : _useFetchContext3$sta;
 
   var isSuccessPassed = status === _statuses.Statuses.Success;
   var isSuccessPassedInMapping = !status && statusMapping[_statuses.Statuses.Success] === true;
@@ -94,7 +96,8 @@ function ErrorView(_ref4) {
 
   var _useFetchContext4 = useFetchContext(),
       status = _useFetchContext4.status,
-      statusMapping = _useFetchContext4.statusMapping;
+      _useFetchContext4$sta = _useFetchContext4.statusMapping,
+      statusMapping = _useFetchContext4$sta === void 0 ? {} : _useFetchContext4$sta;
 
   var isErrorPassed = status === _statuses.Statuses.Error;
   var isErrorPassedInMapping = !status && statusMapping[_statuses.Statuses.Error] === true;
