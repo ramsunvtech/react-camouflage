@@ -82,6 +82,7 @@ FetchView.Fetched = FetchedView
 FetchView.Error = ErrorView
 
 FetchView.propTypes = {
+  statusMapping: PropTypes.object,
   status: PropTypes.string,
   children: PropTypes.node.isRequired,
 }
