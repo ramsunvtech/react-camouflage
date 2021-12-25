@@ -120,6 +120,7 @@ FetchView.Fetching = FetchingView;
 FetchView.Fetched = FetchedView;
 FetchView.Error = ErrorView;
 FetchView.propTypes = {
+  statusMapping: _propTypes["default"].object,
   status: _propTypes["default"].string,
   children: _propTypes["default"].node.isRequired
 };
