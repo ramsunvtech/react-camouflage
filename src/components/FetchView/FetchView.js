@@ -35,10 +35,10 @@ function ErrorView({ children }) {
 }
 
 function FetchView(props) {
-  const { children, status } = props
+  const { children, ...fetchStates } = props
 
   return (
-    <FetchContext.Provider value={status}>
+    <FetchContext.Provider value={fetchStates}>
       {children}
     </FetchContext.Provider>
   )
