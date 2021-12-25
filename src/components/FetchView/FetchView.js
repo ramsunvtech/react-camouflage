@@ -17,7 +17,7 @@ function useFetchContext() {
 function DefaultView({ children }) {
   const { status } = useFetchContext()
   const isStatusFailed = (!status)
-  const isAllFailed = (![
+  const isAllFailed = statusMapping && (![
     statusMapping[Statuses.Loading],
     statusMapping[Statuses.Success],
     statusMapping[Statuses.Error],
@@ -31,7 +31,7 @@ function DefaultView({ children }) {
 }
 
 function FetchingView({ loadingText = 'Loading...', children }) {
-  const { status, statusMapping } = useFetchContext()
+  const { status, statusMapping = {} } = useFetchContext()
   const isLoadingPassed = (status === Statuses.Loading)
   const isLoadingPassedInMapping = (!status && statusMapping[Statuses.Loading] === true)
 
@@ -43,7 +43,7 @@ function FetchingView({ loadingText = 'Loading...', children }) {
 }
 
 function FetchedView({ children }) {
-  const { status, statusMapping } = useFetchContext()
+  const { status, statusMapping = {} } = useFetchContext()
   const isSuccessPassed = (status === Statuses.Success)
   const isSuccessPassedInMapping = (!status && statusMapping[Statuses.Success] === true)
 
@@ -55,7 +55,7 @@ function FetchedView({ children }) {
 }
 
 function ErrorView({ children }) {
-  const { status, statusMapping } = useFetchContext()
+  const { status, statusMapping = {} } = useFetchContext()
   const isErrorPassed = (status === Statuses.Error)
   const isErrorPassedInMapping = (!status && statusMapping[Statuses.Error] === true)
 

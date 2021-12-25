@@ -3,8 +3,8 @@ import React from 'react';
 export default FetchView;
 
 interface FetchViewProps<T = {}> {
-    status: string;
-    statusMapping: any;
+    status?: string;
+    statusMapping?: object;
     children: React.Element;
 }
 
