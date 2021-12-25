@@ -1,5 +1,5 @@
 export const Statuses = {
   Success: 'success',
-  Error: 'Error',
+  Error: 'error',
   Loading: 'loading',
 }
