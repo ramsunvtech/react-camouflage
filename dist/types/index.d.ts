@@ -1,12 +1,24 @@
 import React from 'react'
 
 declare module 'react-camouflage' {
-  interface FetchViewProps<T = {}> {
+  interface IFetchViewProps<T = {}> {
     status: string;
-    children: element;
+    children: ReactNode;
   }
 
-  export class FetchView extends React.Component<FetchViewProps>{
-    constructor(props: FetchViewProps)
+  interface IFetchViewChildrenProps<T = {}> {
+    children: ReactNode;
   }
+
+  interface IFetchViewComposition {
+    Initial: React.FC<IFetchViewChildrenProps>;
+    Fetching: React.FC<IFetchViewChildrenProps>;
+    Fetched: React.FC<IFetchViewChildrenProps>;
+    Error: React.FC<IFetchViewChildrenProps>;
+  }
+
+  export class FetchView extends React.Component<IFetchViewProps, IFetchViewComposition> {
+    constructor(props: IFetchViewProps)
+  }
+
 }
