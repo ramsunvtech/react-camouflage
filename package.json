@@ -1,12 +1,16 @@
 {
   "name": "react-camouflage",
-  "version": "1.3.12",
+  "version": "1.3.13",
   "description": "camouflage components help to change view as per various status",
   "unpkg": "dist/index.js",
   "jsdelivr": "dist/index.js",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
-  "keywords": ['react', 'components', 'fetch-status-mapping'],
+  "keywords": [
+    "react",
+    "components",
+    "fetch-status-mapping"
+  ],
   "scripts": {
     "build": "babel src -d dist --copy-files",
     "clean": "rm -rf node_modules",
