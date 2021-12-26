@@ -6,6 +6,7 @@
   "jsdelivr": "dist/index.js",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
+  "keywords": ['react', 'components', 'fetch-status-mapping'],
   "scripts": {
     "build": "babel src -d dist --copy-files",
     "clean": "rm -rf node_modules",
