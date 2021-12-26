@@ -5,23 +5,23 @@
 
 ### FetchView
 
-Get rid of the below lengthy conditions.
+#### Get rid of the below lengthy conditions for your API (service) status.
 
 ```
 if (!status) {
-  return <PartialLoader />
+  return <div>Partial Loader goes here</div>
 } else if (status === 'loading') {
-  return <Spinner />
+  return <div>Spinner goes here</div>
 } else if (status === 'success') {
-  return <MailList />
+  return <div>Service Data List here</div>
 } else {
    return (
-     Error Occurred: Please click to try again.
+     <span>Error Occurred: Please click to try again.</div>
    );
 }
 ```
 
-FetchView with `status` Props.
+#### Example for FetchView with `status` Props.
 
 ```
 const status = 'success';
@@ -34,21 +34,21 @@ const status = 'success';
 
 <FetchView status={status}>
   <FetchView.Initial>
-    <PartialLoader />
+    <div>Partial Loader goes here</div>
   </FetchView.Initial>
   <FetchView.Fetching>
-    <Spinner />
+    <div>Spinner goes here</div>
   </FetchView.Fetching>
   <FetchView.Fetched>
-    <MailList />
+    <div>Service Data List here</div>
   </FetchView.Fetched>
   <FetchView.Error>
-    <span>Error Occurred: Please click to try again.</span>
+    <span>Error Occurred: Please click to try again.</div>
   </FetchView.Error>
 </FetchView>
 ```
 
-FetchView with `status` Props.
+#### Example for FetchView with `status` Props.
 
 ```
 const statusMapping = {
@@ -59,16 +59,16 @@ const statusMapping = {
 
 <FetchView statusMapping={statusMapping}>
   <FetchView.Initial>
-    <PartialLoader />
+    <div>Partial Loader goes here</div>
   </FetchView.Initial>
   <FetchView.Fetching>
-    <Spinner />
+    <div>Spinner goes here</div>
   </FetchView.Fetching>
   <FetchView.Fetched>
-    <MailList />
+    <div>Service Data List here</div>
   </FetchView.Fetched>
   <FetchView.Error>
-    <span>Error Occurred: Please click to try again.</span>
+    <span>Error Occurred: Please click to try again.</div>
   </FetchView.Error>
 </FetchView>
 ```
